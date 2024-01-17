@@ -1,28 +1,28 @@
 {
-  "name": "vite-react-starter-tamplate",
-  "private": true,
-  "version": "0.0.1",
-  "type": "module",
-  "prettier": "@aklesky/prettier-config",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "npm run build && vite preview --outDir ../dist"
-  },
-  "devDependencies": {
-    "@aklesky/eslint-config": "0.9.0",
-    "@aklesky/jest-config": "0.9.0",
-    "@aklesky/postcss-config": "0.9.0",
-    "@aklesky/prettier-config": "0.9.0",
-    "@aklesky/tailwind-config": "0.9.0",
-    "@aklesky/ts-config": "0.9.0",
-    "@aklesky/vite-config": "0.9.0",
-    "@types/react": "18.2.46",
-    "@types/react-dom": "18.2.18",
-    "typescript": "5.3.3"
-  },
-  "dependencies": {
-    "@aklesky/react-presets": "0.9.0"
-  }
+    "name": "vite-react-starter-tamplate",
+    "private": true,
+    "version": "0.0.1",
+    "type": "module",
+    "prettier": "@aklesky/prettier-config",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "npm run build && vite preview --outDir ../dist"
+    },
+    "devDependencies": {
+        "@aklesky/eslint-config": "0.9.0",
+        "@aklesky/jest-config": "0.9.0",
+        "@aklesky/postcss-config": "0.9.0",
+        "@aklesky/prettier-config": "0.9.0",
+        "@aklesky/tailwind-config": "0.9.0",
+        "@aklesky/ts-config": "0.9.0",
+        "@aklesky/vite-config": "0.9.0",
+        "@types/react": "18.2.46",
+        "@types/react-dom": "18.2.18",
+        "typescript": "5.3.3"
+    },
+    "dependencies": {
+        "@aklesky/react-presets": "0.9.0"
+    }
 }
