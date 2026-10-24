@@ -1,4 +1,7 @@
 {
-    "extends": "@aklesky/ts-config/node/18/vite.config.json",
-    "include": ["vite.config.ts", "tailwind.config.ts"]
+    "extends": "@aklesky/typescript-presets/node/24.x/node.json",
+    "compilerOptions": {
+        "noEmit": true
+    },
+    "include": ["vite.config.ts", "vitest.config.ts", "oxlint.config.ts", "oxfmt.config.ts"]
 }

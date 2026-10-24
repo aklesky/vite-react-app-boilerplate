@@ -1,0 +1,14 @@
+allowBuilds:
+    core-js: false
+    esbuild: false
+    sharp: false
+    workerd: false
+minimumReleaseAgeExclude:
+    - '@aklesky/eslint-presets@0.1.1'
+    - '@aklesky/oxc-presets@0.1.1'
+    - '@aklesky/react-presets@0.10.1'
+    - '@aklesky/tailwindcss-presets@0.1.1'
+    - '@aklesky/typescript-presets@0.1.1'
+    - '@aklesky/vite-presets@0.1.1'
+    - '@aklesky/vitest-presets@0.1.1'
+    - '@aklesky/worker-presets@0.1.1'
