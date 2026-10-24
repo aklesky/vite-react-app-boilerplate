@@ -20,6 +20,15 @@ Node.js 24.22.1 and pnpm 12.15.0 are pinned in `package.json`.
 - `src/` for the React app, `worker/` for the Worker that answers `/api/*`
 - `public/` for static files
 
+## Styling
+
+Tailwind CSS 4 comes through [@aklesky/tailwindcss-presets](https://www.npmjs.com/package/@aklesky/tailwindcss-presets), wired in at two places:
+
+- `vite.config.ts` adds the Tailwind CSS Vite plugin with `withTailwind()` from `@aklesky/tailwindcss-presets/vite.js`.
+- `src/index.css` is the only stylesheet. It imports `tailwindcss` and `@aklesky/tailwindcss-presets/preset.css`, which loads the `@tailwindcss/forms` and `@tailwindcss/typography` plugins.
+
+Components use utility classes only. The text block uses `prose prose-invert` from the typography plugin, and the name input is styled on top of the base styles of the forms plugin.
+
 ## Scripts
 
 | Script         | Runs                                                                     |
