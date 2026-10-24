@@ -8,10 +8,11 @@ const button =
 
 export function App() {
     const [count, setCount] = useState(0)
+    const [input, setInput] = useState('')
     const [name, setName] = useState('unknown')
 
     const fetchName = async () => {
-        const response = await fetch('/api/')
+        const response = await fetch(`/api/?name=${encodeURIComponent(input)}`)
         const data: { name: string } = await response.json()
         setName(data.name)
     }
@@ -35,12 +36,28 @@ export function App() {
                 <button type="button" className={button} onClick={() => setCount(prev => prev + 1)}>
                     count is {count}
                 </button>
-                <button type="button" className={button} onClick={fetchName}>
-                    Name from API is: {name}
-                </button>
-                <p>
-                    Edit <code>src/app/app.tsx</code> and save to test HMR, or <code>worker/index.ts</code> for the API
-                </p>
+                <div className="mx-auto flex max-w-md items-end gap-2 text-left">
+                    <label className="block flex-1">
+                        <span className="text-sm text-slate-400">Name to send to the API</span>
+                        <input
+                            type="text"
+                            value={input}
+                            placeholder="Cloudflare"
+                            onChange={event => setInput(event.target.value)}
+                            className="mt-1 block w-full rounded-md border-slate-600 bg-slate-800 text-slate-100 placeholder:text-slate-500 focus:border-sky-600 focus:ring-sky-600"
+                        />
+                    </label>
+                    <button type="button" className={button} onClick={fetchName}>
+                        Send
+                    </button>
+                </div>
+                <p>Name from API is: {name}</p>
+                <div className="prose prose-invert mx-auto">
+                    <p>
+                        Edit <code>src/app/app.tsx</code> and save to test HMR, or <code>worker/index.ts</code> for the
+                        API.
+                    </p>
+                </div>
             </div>
             <p className="text-slate-500">Click on the Vite and React logos to learn more</p>
         </main>
