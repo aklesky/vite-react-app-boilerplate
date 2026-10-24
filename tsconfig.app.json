@@ -1,0 +1,4 @@
+{
+    "extends": "@aklesky/react-presets/tsconfig/jsx.json",
+    "include": ["src"]
+}

@@ -12,10 +12,6 @@
     },
     "packageRules": [
         {
-            "matchPackageNames": ["node"],
-            "allowedVersions": "18.9.0"
-        },
-        {
             "matchDepTypes": ["devDependencies", "dependencies"],
             "matchUpdateTypes": ["major"],
             "groupName": "dependencies (major)"

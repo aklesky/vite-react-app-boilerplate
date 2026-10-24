@@ -17,3 +17,10 @@ dist
 !.vscode/settings.json
 .idea
 .DS_Store
+
+# Build, test and Cloudflare output
+coverage
+ui
+.wrangler
+.dev.vars*
+*.tsbuildinfo

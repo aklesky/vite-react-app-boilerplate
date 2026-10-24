@@ -1,10 +1,10 @@
-import { renderApp } from '@aklesky/react-presets/client/render.js'
-import React from 'react'
-import App from './app/app.tsx'
-import './index.scss'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { App } from './app/app.js'
+import './index.css'
 
-renderApp('root', () => (
-    <React.StrictMode>
+createRoot(document.getElementById('root')!).render(
+    <StrictMode>
         <App />
-    </React.StrictMode>
-))
+    </StrictMode>
+)
