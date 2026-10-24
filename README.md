@@ -19,6 +19,7 @@ Node.js 24.22.1 and pnpm 12.15.0 are pinned in `package.json`.
 - `index.html` and `wrangler.jsonc` in the project root
 - `src/` for the React app, `worker/` for the Worker that answers `/api/*`
 - `public/` for static files
+- tests next to the code they test: `src/app/app.test.tsx` and `worker/index.test.ts`
 
 ## Styling
 
@@ -31,16 +32,17 @@ Components use utility classes only. The text block uses `prose prose-invert` fr
 
 ## Scripts
 
-| Script         | Runs                                                                     |
-| -------------- | ------------------------------------------------------------------------ |
-| `pnpm dev`     | the app and the Worker locally                                           |
-| `pnpm build`   | type checks, then `vite build` to `dist/client` and `dist/<worker name>` |
-| `pnpm preview` | the built app and Worker locally                                         |
-| `pnpm deploy`  | builds and deploys with `wrangler deploy`                                |
-| `pnpm test`    | Vitest, with the HTML report in `ui/`                                    |
-| `pnpm lint`    | oxlint                                                                   |
-| `pnpm format`  | oxfmt check; `pnpm exec oxfmt` formats                                   |
-| `pnpm types`   | regenerates `worker-configuration.d.ts` after changing `wrangler.jsonc`  |
+| Script           | Runs                                                                     |
+| ---------------- | ------------------------------------------------------------------------ |
+| `pnpm dev`       | the app and the Worker locally                                           |
+| `pnpm build`     | type checks, then `vite build` to `dist/client` and `dist/<worker name>` |
+| `pnpm typecheck` | `tsc` on the app, Worker and config files                                |
+| `pnpm preview`   | the built app and Worker locally                                         |
+| `pnpm deploy`    | builds and deploys with `wrangler deploy`                                |
+| `pnpm test`      | Vitest, with the HTML report in `ui/`                                    |
+| `pnpm lint`      | oxlint                                                                   |
+| `pnpm format`    | oxfmt check; `pnpm exec oxfmt` formats                                   |
+| `pnpm types`     | regenerates `worker-configuration.d.ts` after changing `wrangler.jsonc`  |
 
 ## TypeScript
 
@@ -51,3 +53,14 @@ The app, the Worker and the config files have separate configs, because DOM and 
 - `tsconfig.node.json`: `vite.config.ts` and the other config files
 
 Relative imports use the `.js` extension, for example `import { App } from './app/app.js'`.
+
+## Dependencies
+
+Renovate (`renovate.json`) checks for updates before 9am on Mondays:
+
+- Minor and patch updates come in one PR, 7 days after their release. The `@aklesky/*` presets come without the wait.
+- Each major gets its own PR after you approve it on the Dependency Dashboard.
+- `@types/node` stays on 24, matching the Node.js version in `devEngines`.
+- The lockfile is refreshed on the first day of each month.
+
+`pnpm-workspace.yaml` turns off the install scripts of `core-js`, `esbuild`, `sharp` and `workerd` (`allowBuilds`) and lets `@aklesky/*` install without pnpm's minimum release age.
